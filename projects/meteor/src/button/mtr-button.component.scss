@@ -1,0 +1,42 @@
+@import "../style/variabels";
+
+:host {
+  display: inline-block;
+}
+
+button {
+  border: 0;
+  letter-spacing: 1px;
+  outline: none;
+  padding: $spacing-s $spacing-m;
+  text-transform: uppercase;
+}
+
+@mixin buttonStyle($color) {
+  background-color: $color;
+  color: chooseFgColor($color);
+
+  &:hover {
+    background-color: chooseHoverColor($color);
+  }
+  &:active {
+    background-color: chooseActiveColor($color);
+  }
+}
+
+button,
+:host[primary] button {
+  @include buttonStyle($primary);
+}
+:host[secondary] button {
+  @include buttonStyle($secondary);
+}
+:host[tertiary] button {
+  @include buttonStyle($tertiary);
+}
+:host[dark] button {
+  @include buttonStyle($dark);
+}
+:host[light] button {
+  @include buttonStyle($light);
+}

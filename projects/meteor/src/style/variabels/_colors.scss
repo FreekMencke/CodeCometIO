@@ -1,0 +1,32 @@
+$primary: red;
+$secondary: green;
+$tertiary: blue;
+$dark: #1a1030;
+$light: white;
+
+$black: #111111;
+$white: #ffffff;
+
+@function chooseFgColor($bgColor) {
+  @if (lightness($bgColor) > 50) {
+    @return $black;
+  } @else {
+    @return $white;
+  }
+}
+
+@function chooseHoverColor($bgColor) {
+  @if (lightness($bgColor) > 20) {
+    @return darken($bgColor, 5%);
+  } @else {
+    @return lighten($bgColor, 4%);
+  }
+}
+
+@function chooseActiveColor($bgColor) {
+  @if (lightness($bgColor) > 20) {
+    @return darken($bgColor, 10%);
+  } @else {
+    @return lighten($bgColor, 8%);
+  }
+}
