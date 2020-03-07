@@ -1,42 +1,83 @@
-@import "../style/variabels";
+@import "../style/variables";
+@import "../style/mixins";
 
 :host {
   display: inline-block;
 }
 
+@mixin buttonColors($fg, $bg, $light, $lighter) {
+  --button-color-foreground: #{$fg};
+  --button-color-background: #{$bg};
+  --button-color-light: #{$light};
+  --button-color-lighter: #{$lighter};
+}
+
 button {
-  border: 0;
+  @include buttonColors(
+    chooseFgColor($primary),
+    $primary,
+    chooseHoverColor($primary),
+    chooseActiveColor($primary)
+  );
+
+  background-color: var(--button-color-background);
+  border: 1px solid var(--button-color-background);
+  color: var(--button-color-foreground);
   letter-spacing: 1px;
   outline: none;
   padding: $spacing-s $spacing-m;
   text-transform: uppercase;
-}
-
-@mixin buttonStyle($color) {
-  background-color: $color;
-  color: chooseFgColor($color);
 
   &:hover {
-    background-color: chooseHoverColor($color);
+    background-color: var(--button-color-light);
+    border-color: var(--button-color-light);
   }
   &:active {
-    background-color: chooseActiveColor($color);
+    background-color: var(--button-color-lighter);
+    border-color: var(--button-color-lighter);
   }
 }
 
-button,
-:host[primary] button {
-  @include buttonStyle($primary);
+@each $name, $value in $colors {
+  :host.#{"" + $name} button,
+  :host[#{""+$name}] button {
+    @include buttonColors(
+      chooseFgColor($value),
+      $value,
+      chooseHoverColor($value),
+      chooseActiveColor($value)
+    );
+  }
 }
-:host[secondary] button {
-  @include buttonStyle($secondary);
+
+:host.outline button,
+:host[outline] button {
+  background-color: transparent;
+
+  --button-color-background: var(--button-color-light);
+  color: var(--button-color-background);
+
+  &:hover {
+    background-color: var(--button-color-light);
+    color: var(--button-color-foreground);
+  }
+  &:active {
+    background-color: var(--button-color-lighter);
+    color: var(--button-color-foreground);
+  }
 }
-:host[tertiary] button {
-  @include buttonStyle($tertiary);
-}
-:host[dark] button {
-  @include buttonStyle($dark);
-}
-:host[light] button {
-  @include buttonStyle($light);
+
+:host.flat button,
+:host[flat] button {
+  background-color: transparent;
+  border-color: transparent;
+
+  color: var(--button-color-light);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  &:active {
+    background-color: rgba(0, 0, 0, 0.16);
+  }
 }

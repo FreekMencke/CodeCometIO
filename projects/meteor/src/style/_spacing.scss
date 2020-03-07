@@ -1,4 +1,4 @@
-@import "../style/variabels";
+@import "./variables/spacing";
 
 @mixin spacing($property, $tag, $size) {
   .#{$tag}--#{$size} {

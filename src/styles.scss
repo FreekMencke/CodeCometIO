@@ -1,3 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "meteor/src/style/global";
+
+.bg-contrast {
+  padding: $spacing-m;
+  background: repeating-linear-gradient(
+    45deg,
+    darken(#dde, 4%),
+    darken(#dde, 4%) 10px,
+    darken(#dde, 8%) 10px,
+    darken(#dde, 8%) 20px
+  );
+}

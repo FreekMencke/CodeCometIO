@@ -1,0 +1,10 @@
+@import "./variables";
+
+@each $name, $value in $colors {
+  .color-fg--#{"" + $name} {
+    color: $value !important;
+  }
+  .color-bg--#{"" + $name} {
+    background-color: $value !important;
+  }
+}

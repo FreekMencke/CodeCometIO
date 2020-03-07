@@ -1,11 +1,4 @@
-$primary: red;
-$secondary: green;
-$tertiary: blue;
-$dark: #1a1030;
-$light: white;
-
-$black: #111111;
-$white: #ffffff;
+@import "../variables/colors";
 
 @function chooseFgColor($bgColor) {
   @if (lightness($bgColor) > 50) {
@@ -17,16 +10,16 @@ $white: #ffffff;
 
 @function chooseHoverColor($bgColor) {
   @if (lightness($bgColor) > 20) {
-    @return darken($bgColor, 5%);
+    @return darken($bgColor, 8%);
   } @else {
-    @return lighten($bgColor, 4%);
+    @return lighten($bgColor, 6%);
   }
 }
 
 @function chooseActiveColor($bgColor) {
   @if (lightness($bgColor) > 20) {
-    @return darken($bgColor, 10%);
+    @return darken($bgColor, 16%);
   } @else {
-    @return lighten($bgColor, 8%);
+    @return lighten($bgColor, 12%);
   }
 }

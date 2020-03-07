@@ -1,0 +1,5 @@
+@import "meteor/src/style/variables";
+
+mtr-btn + mtr-btn {
+  margin-left: $spacing-m;
+}
