@@ -12,6 +12,8 @@ MIT
 
 code-comet-io
 
+meteor
+
 rxjs
 Apache-2.0
                                Apache License

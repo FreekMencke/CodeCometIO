@@ -3,37 +3,92 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "code-comet-io": {
+    "meteor": {
+      "projectType": "library",
+      "root": "projects/meteor",
+      "sourceRoot": "projects/meteor/src",
+      "prefix": "mtr",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/meteor/tsconfig.lib.json",
+            "project": "projects/meteor/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/meteor/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/meteor/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "meteorite": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "inlineTemplate": true,
+          "inlineStyle": true,
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "cc",
+      "root": "projects/meteorite",
+      "sourceRoot": "projects/meteorite/src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/code-comet-io",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "outputPath": "dist/meteorite",
+            "index": "projects/meteorite/src/index.html",
+            "main": "projects/meteorite/src/main.ts",
+            "polyfills": "projects/meteorite/src/polyfills.ts",
+            "tsConfig": "projects/meteorite/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/meteorite/src/favicon.ico",
+              "projects/meteorite/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "projects/meteorite/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./node_modules",
-                "./dist"
+                "dist/",
+                "node_modules"
               ]
             },
             "scripts": []
@@ -42,8 +97,117 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/meteorite/src/environments/environment.ts",
+                  "with": "projects/meteorite/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "meteorite:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "meteorite:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "meteorite:build"
+          }
+        }
+      }
+    },
+    "code-comet-io": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineTemplate": true,
+          "inlineStyle": true,
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/code-comet-io",
+      "sourceRoot": "projects/code-comet-io/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/code-comet-io",
+            "index": "projects/code-comet-io/src/index.html",
+            "main": "projects/code-comet-io/src/main.ts",
+            "polyfills": "projects/code-comet-io/src/polyfills.ts",
+            "tsConfig": "projects/code-comet-io/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/code-comet-io/src/favicon.ico",
+              "projects/code-comet-io/src/assets"
+            ],
+            "styles": [
+              "projects/code-comet-io/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "dist/",
+                "node_modules"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/code-comet-io/src/environments/environment.ts",
+                  "with": "projects/code-comet-io/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -85,51 +249,8 @@
           "options": {
             "browserTarget": "code-comet-io:build"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "meteor": {
-      "projectType": "library",
-      "root": "projects/meteor",
-      "sourceRoot": "projects/meteor/src",
-      "prefix": "mtr",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/meteor/tsconfig.lib.json",
-            "project": "projects/meteor/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/meteor/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/meteor/tsconfig.lib.json",
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     }
-  },
-  "defaultProject": "code-comet-io"
+  }
 }

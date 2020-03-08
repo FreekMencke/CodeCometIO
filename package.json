@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve --open",
-    "build": "ng build",
+    "build:meteor": "ng build meteor",
+    "build:meteorite": "ng build meteorite --base-href /CodeCometIO/meteorite/",
+    "build:code-comet-io": "ng build code-comet-io --base-href /CodeCometIO/",
+    "prebuild:prod": "rm -rf dist/ docs/ node_modules/.cache",
+    "build:prod": "npm run build:meteor -- --prod && npm run build:meteorite -- --prod && npm run build:code-comet-io -- --prod",
+    "postbuild:prod": "cp -r dist/code-comet-io docs/ && cp -r dist/meteorite docs/meteorite/",
     "lint": "ng lint"
   },
   "private": true,
