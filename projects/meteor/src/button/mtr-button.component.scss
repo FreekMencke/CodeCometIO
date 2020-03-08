@@ -5,25 +5,25 @@
   display: inline-block;
 }
 
-@mixin buttonColors($fg, $bg, $light, $lighter) {
-  --button-color-foreground: #{$fg};
-  --button-color-background: #{$bg};
+@mixin buttonColors($color, $contrast, $light, $lighter) {
+  --button-color: #{$color};
+  --button-color-contrast: #{$contrast};
   --button-color-light: #{$light};
   --button-color-lighter: #{$lighter};
 }
 
 button {
   @include buttonColors(
-    chooseFgColor($primary),
     $primary,
+    chooseContrastColor($primary),
     chooseHoverColor($primary),
     chooseActiveColor($primary)
   );
 
-  background-color: var(--button-color-background);
-  border: 1px solid var(--button-color-background);
-  color: var(--button-color-foreground);
+  border: 1px solid var(--button-color);
+  color: var(--button-color-contrast);
   letter-spacing: 1px;
+  background-color: var(--button-color);
   outline: none;
   padding: $spacing-s $spacing-m;
   text-transform: uppercase;
@@ -42,8 +42,8 @@ button {
   :host.#{"" + $name} button,
   :host[#{""+$name}] button {
     @include buttonColors(
-      chooseFgColor($value),
       $value,
+      chooseContrastColor($value),
       chooseHoverColor($value),
       chooseActiveColor($value)
     );
@@ -52,18 +52,18 @@ button {
 
 :host.outline button,
 :host[outline] button {
-  background-color: transparent;
+  --button-color: var(--button-color-light);
 
-  --button-color-background: var(--button-color-light);
-  color: var(--button-color-background);
+  background-color: transparent;
+  color: var(--button-color);
 
   &:hover {
     background-color: var(--button-color-light);
-    color: var(--button-color-foreground);
+    color: var(--button-color-contrast);
   }
   &:active {
     background-color: var(--button-color-lighter);
-    color: var(--button-color-foreground);
+    color: var(--button-color-contrast);
   }
 }
 
