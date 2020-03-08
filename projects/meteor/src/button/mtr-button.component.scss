@@ -16,8 +16,8 @@ button {
   @include buttonColors(
     $primary,
     chooseContrastColor($primary),
-    chooseHoverColor($primary),
-    chooseActiveColor($primary)
+    chooseLightColor($primary),
+    chooseLighterColor($primary)
   );
 
   border: 1px solid var(--button-color);
@@ -44,8 +44,8 @@ button {
     @include buttonColors(
       $value,
       chooseContrastColor($value),
-      chooseHoverColor($value),
-      chooseActiveColor($value)
+      chooseLightColor($value),
+      chooseLighterColor($value)
     );
   }
 }
@@ -78,6 +78,6 @@ button {
     background-color: rgba(0, 0, 0, 0.08);
   }
   &:active {
-    background-color: rgba(0, 0, 0, 0.16);
+    background-color: rgba(0, 0, 0, 0.12);
   }
 }

@@ -1,30 +1,51 @@
+@import "./mixins/colors";
+@import "./variables/colors";
 @import "./variables/spacing";
+
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@300;400;600&display=swap");
 
 * {
+  color: $dark;
   font-family: "Lato", sans-serif;
 
-  .text--bold {
+  .mtr-text--bold,
+  .mtr-text--bold * {
     font-weight: 700;
   }
 }
 
 h1,
+h1 *,
 h2,
+h2 *,
 h3,
+h3 *,
 h4,
+h4 *,
 h5,
-h6 {
+h5 *,
+h6,
+h6 * {
+  --heading-color: #{chooseLightColor($primary)};
+  --subheading-color: #{chooseLighterColor($primary)};
+
+  color: var(--heading-color);
+
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 
-  margin-bottom: $spacing-s;
-  margin-top: $spacing-s;
+  letter-spacing: 1px;
+  line-height: 100%;
 
-  .text--bold {
-    font-weight: 600;
-  }
-  .text--light {
+  margin-bottom: $spacing-m;
+
+  div.mtr-subtitle {
+    color: var(--subheading-color);
+    font-size: 70%;
     font-weight: 300;
   }
+}
+
+p {
+  margin-bottom: $spacing-m;
 }

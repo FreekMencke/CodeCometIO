@@ -3,7 +3,6 @@
 @import "meteor/src/style/global";
 
 .bg-contrast {
-  padding: $spacing-m;
   background: repeating-linear-gradient(
     45deg,
     darken(#dde, 4%),
@@ -11,4 +10,6 @@
     darken(#dde, 8%) 10px,
     darken(#dde, 8%) 20px
   );
+  padding: $spacing-m;
+  margin-bottom: $spacing-m;
 }

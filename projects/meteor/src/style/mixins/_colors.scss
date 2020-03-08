@@ -8,17 +8,17 @@
   }
 }
 
-@function chooseHoverColor($bgColor) {
+@function chooseLightColor($bgColor) {
   @if (lightness($bgColor) > 20) {
     @return darken($bgColor, 8%);
   } @else {
-    @return lighten($bgColor, 6%);
+    @return lighten($bgColor, 8%);
   }
 }
 
-@function chooseActiveColor($bgColor) {
+@function chooseLighterColor($bgColor) {
   @if (lightness($bgColor) > 20) {
-    @return darken($bgColor, 16%);
+    @return darken($bgColor, 12%);
   } @else {
     @return lighten($bgColor, 12%);
   }
