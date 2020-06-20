@@ -1,9 +1,11 @@
 {
   "name": "meteor",
   "version": "0.0.1",
+  "dependencies": {
+    "tslib": "^1.13.0"
+  },
   "peerDependencies": {
-    "@angular/common": "^9.0.1",
-    "@angular/core": "^9.0.1",
-    "tslib": "^1.10.0"
+    "@angular/common": "^9.1.11",
+    "@angular/core": "^9.1.11"
   }
 }
