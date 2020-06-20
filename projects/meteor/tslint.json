@@ -1,17 +1,18 @@
 {
   "extends": "../../tslint.json",
   "rules": {
+    "component-selector": [
+      true,
+      "element",
+      "mtr",
+      "kebab-case"
+    ],
     "directive-selector": [
       true,
       "attribute",
       "mtr",
       "camelCase"
     ],
-    "component-selector": [
-      true,
-      "element",
-      "mtr",
-      "kebab-case"
-    ]
+    "prefer-on-push-component-change-detection": true
   }
 }

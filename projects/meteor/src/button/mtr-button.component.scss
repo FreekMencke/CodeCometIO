@@ -22,12 +22,14 @@ button {
 
   cursor: pointer;
 
-  border: 1px solid var(--button-color);
-  color: var(--button-color-contrast);
-  letter-spacing: 1px;
-  background-color: var(--button-color);
-  outline: none;
+  width: 100%;
   padding: $spacing-s $spacing-m;
+
+  color: var(--button-color-contrast);
+  background-color: var(--button-color);
+  border: 1px solid var(--button-color);
+  outline: none;
+  letter-spacing: 1px;
   text-transform: uppercase;
 
   &:hover {

@@ -1,0 +1,15 @@
+:host {
+  display: grid;
+
+  height: 100%;
+  width: 100%;
+
+  grid-template-columns: 300px 1fr;
+
+  transition: all 300ms;
+}
+
+:host.mtr-side-menu--closed {
+  grid-template-columns: 50px 1fr;
+  transition: all 300ms;
+}

@@ -36,11 +36,6 @@
     background-color: var(--side-menu-item-color-lighter);
   }
 
-  &::after {
-    content: "\276F";
-    float: right;
-  }
-
   &.mtr-side-menu-item--active {
     background-color: var(--side-menu-item-color-light);
   }

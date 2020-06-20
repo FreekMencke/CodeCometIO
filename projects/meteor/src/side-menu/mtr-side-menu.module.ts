@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MeteorSideMenuContainerComponent } from './mtr-side-menu-container.component';
+import { MeteorSideMenuComponent } from './mtr-side-menu.component';
 import { MeteorSideMenuContentComponent } from './mtr-side-menu-content.component';
 import { MeteorSideMenuItemListComponent } from './mtr-side-menu-item-list.component';
 import { MeteorSideMenuToggleDirective } from './mtr-side-menu-toggle.directive';
 import { MeteorSideMenuItemComponent } from './mtr-side-menu-item.component';
+import { MeteorButtonModule } from '../button/mtr-button.module';
 
 const COMPONENTS = [
-  MeteorSideMenuContainerComponent,
+  MeteorSideMenuComponent,
   MeteorSideMenuContentComponent,
   MeteorSideMenuItemListComponent,
   MeteorSideMenuItemComponent,
@@ -15,7 +16,10 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MeteorButtonModule,
+  ],
   declarations: COMPONENTS,
   exports: COMPONENTS,
 })

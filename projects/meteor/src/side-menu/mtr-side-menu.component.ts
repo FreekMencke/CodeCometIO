@@ -1,22 +1,15 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MeteorSideMenuService } from './mtr-side-menu.service';
 
 @Component({
-  selector: 'mtr-side-menu-container',
-  template: `
-    <div class="mtr-side-menu__item-list">
-      <ng-content select="mtr-side-menu-item-list"></ng-content>
-    </div>
-    <div class="mtr-side-menu__content">
-      <ng-content select="mtr-side-menu-content"></ng-content>
-    </div>
-  `,
-  styleUrls: ['./mtr-side-menu-container.component.scss'],
+  selector: 'mtr-side-menu',
+  template: '<ng-content></ng-content>',
+  styleUrls: ['./mtr-side-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MeteorSideMenuContainerComponent implements OnInit, OnDestroy {
+export class MeteorSideMenuComponent implements OnInit, OnDestroy {
 
   private readonly destroyed$: Subject<void> = new Subject();
 
@@ -27,6 +20,7 @@ export class MeteorSideMenuContainerComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.mtrSideMenuService.open(); // TODO: relace with width check
     this.mtrSideMenuService.isOpen$
       .pipe(takeUntil(this.destroyed$))
       .subscribe(isOpen => this.closed = !isOpen);

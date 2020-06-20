@@ -10,21 +10,15 @@
   @include itemColors(chooseLightColor($dark), chooseContrastColor($dark));
 
   display: block;
-  width: 100%;
+  width: 300px;
   height: 100%;
+  overflow-y: auto;
 
   background-color: var(--side-menu-item-color);
   color: var(--side-menu-item-color-contrast);
 
-  &::ng-deep {
-    & * {
-      margin: 0;
-      color: var(--side-menu-item-color-contrast);
-    }
-    & > * {
-      padding: $spacing-m $spacing-m;
-    }
-  }
+  transition: none;
+  -moz-transition: all 300ms; // https://caniuse.com/#feat=mdn-css_properties_grid-template-columns_animation
 }
 
 @each $name, $value in $colors {
@@ -32,4 +26,25 @@
   :host[#{"" + $name}] {
     @include itemColors(chooseLightColor($value), chooseContrastColor($value));
   }
+}
+
+.mtr-side-menu--closed :host {
+  transform: translate3d(-250px, 0, 0);
+}
+
+.mtr-side-menu__toggle {
+  float: right;
+  padding: 0;
+  font-size: 25px;
+  width: 50px;
+  height: 50px;
+  &::ng-deep button {
+    padding: 8px 0;
+  }
+}
+
+.mtr-side-menu__title {
+  padding: $spacing-m;
+  margin: 0;
+  color: var(--side-menu-item-color-contrast);
 }
