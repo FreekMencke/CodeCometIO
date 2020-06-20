@@ -20,6 +20,8 @@ button {
     chooseLighterColor($primary)
   );
 
+  cursor: pointer;
+
   border: 1px solid var(--button-color);
   color: var(--button-color-contrast);
   letter-spacing: 1px;
@@ -40,7 +42,7 @@ button {
 
 @each $name, $value in $colors {
   :host.#{"" + $name} button,
-  :host[#{""+$name}] button {
+  :host[#{"" + $name}] button {
     @include buttonColors(
       $value,
       chooseContrastColor($value),

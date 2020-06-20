@@ -1,0 +1,35 @@
+@import "../style/variables";
+@import "../style/mixins";
+
+@mixin itemColors($color, $contrast) {
+  --side-menu-item-color: #{$color};
+  --side-menu-item-color-contrast: #{$contrast};
+}
+
+:host {
+  @include itemColors(chooseLightColor($dark), chooseContrastColor($dark));
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--side-menu-item-color);
+  color: var(--side-menu-item-color-contrast);
+
+  &::ng-deep {
+    & * {
+      margin: 0;
+      color: var(--side-menu-item-color-contrast);
+    }
+    & > * {
+      padding: $spacing-m $spacing-m;
+    }
+  }
+}
+
+@each $name, $value in $colors {
+  :host.#{"" + $name},
+  :host[#{"" + $name}] {
+    @include itemColors(chooseLightColor($value), chooseContrastColor($value));
+  }
+}

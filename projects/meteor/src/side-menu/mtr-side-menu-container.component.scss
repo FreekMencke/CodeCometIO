@@ -1,0 +1,24 @@
+:host {
+  display: grid;
+
+  height: 100%;
+  width: 100%;
+
+  grid-template-columns: 300px 1fr;
+  grid-template-areas: "itemlist content";
+
+  &.mtr-side-menu--closed {
+    grid-template-columns: 100%;
+    grid-template-areas: "content";
+    .mtr-side-menu__item-list {
+      display: none;
+    }
+  }
+}
+
+.mtr-side-menu__item-list {
+  grid-area: itemlist;
+}
+.mtr-side-menu__content {
+  grid-area: content;
+}

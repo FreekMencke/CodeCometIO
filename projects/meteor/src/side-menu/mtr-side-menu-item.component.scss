@@ -1,0 +1,59 @@
+@import "../style/variables";
+@import "../style/mixins";
+
+@mixin itemColors($color, $contrast, $light, $lighter) {
+  --side-menu-item-color: #{$color};
+  --side-menu-item-color-contrast: #{$contrast};
+  --side-menu-item-color-light: #{$light};
+  --side-menu-item-color-lighter: #{$lighter};
+}
+
+:host {
+  @include itemColors(
+    $primary,
+    chooseContrastColor($primary),
+    chooseLightColor($primary),
+    chooseLighterColor($primary)
+  );
+
+  display: block;
+  padding: $spacing-s $spacing-m;
+  cursor: pointer;
+
+  background-color: var(--side-menu-item-color);
+  color: var(--side-menu-item-color-contrast);
+  outline: none;
+
+  border-bottom: 1px solid var(--side-menu-item-color-lighter);
+  &:first-of-type {
+    border-top: 1px solid var(--side-menu-item-color-lighter);
+  }
+
+  &:hover {
+    background-color: var(--side-menu-item-color-light);
+  }
+  &:active {
+    background-color: var(--side-menu-item-color-lighter);
+  }
+
+  &::after {
+    content: "\276F";
+    float: right;
+  }
+
+  &.mtr-side-menu-item--active {
+    background-color: var(--side-menu-item-color-light);
+  }
+}
+
+@each $name, $value in $colors {
+  :host.#{"" + $name},
+  :host[#{"" + $name}] {
+    @include itemColors(
+      $value,
+      chooseContrastColor($value),
+      chooseLightColor($value),
+      chooseLighterColor($value)
+    );
+  }
+}
