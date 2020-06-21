@@ -1,22 +1,21 @@
-<mtr-side-menu>
+<mit-header></mit-header>
 
-  <mtr-side-menu-item-list title="Components">
-    <mtr-side-menu-item routerLink="/docs/button" routerLinkActive="mtr-side-menu-item--active">
-      Buttons
-    </mtr-side-menu-item>
-    <mtr-side-menu-item routerLink="/docs/side-menu" routerLinkActive="mtr-side-menu-item--active">
-      Side Menu
-    </mtr-side-menu-item>
-  </mtr-side-menu-item-list>
+<mtr-container [fullWidth]="true">
+  <mtr-side-menu>
+    <mtr-side-menu-item-list title="Components">
+      <mtr-side-menu-item *ngFor="let doc of availableDocs" [routerLink]="'/docs/' + doc.path"
+        routerLinkActive="mtr-side-menu-item--active">
+        {{ doc.text }}
+      </mtr-side-menu-item>
+    </mtr-side-menu-item-list>
 
-  <mtr-side-menu-content>
+    <mtr-side-menu-content>
 
-    <main class="p--m">
-      <h1>Documentation</h1>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
 
-      <router-outlet></router-outlet>
-    </main>
+    </mtr-side-menu-content>
 
-  </mtr-side-menu-content>
-
-</mtr-side-menu>
+  </mtr-side-menu>
+</mtr-container>

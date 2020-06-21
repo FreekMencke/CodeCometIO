@@ -1,0 +1,19 @@
+@import "../style/variables/spacing";
+
+:host {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  max-width: 1280px;
+
+  margin: auto;
+}
+
+:host.mtr-container--has-header {
+  height: calc(100% - 64px);
+}
+
+:host.mtr-container--full-width {
+  max-width: 100%;
+}

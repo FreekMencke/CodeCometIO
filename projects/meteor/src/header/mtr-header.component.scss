@@ -1,0 +1,97 @@
+@import "../style/variables/colors";
+@import "../style/variables/spacing";
+@import "../style/mixins";
+
+$header-height: 64px;
+$header-branding-width: 300px;
+
+@mixin headerColors($color, $contrast, $light, $lighter) {
+  --header-color: #{$color};
+  --header-color-contrast: #{$contrast};
+  --header-color-light: #{$light};
+  --header-color-lighter: #{$lighter};
+}
+
+header {
+  @include headerColors(
+    $white,
+    chooseContrastColor($white),
+    chooseLightColor($white),
+    chooseLighterColor($white)
+  );
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: row;
+
+  height: $header-height;
+
+  background-color: var(--header-color);
+  color: var(--header-color-contrast);
+
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+@each $name, $value in $colors {
+  :host.#{"" + $name} header,
+  :host[#{"" + $name}] header {
+    @include headerColors(
+      $value,
+      chooseContrastColor(chooseLightColor($value)),
+      chooseLightColor($value),
+      chooseLighterColor($value)
+    );
+  }
+}
+
+.mtr-header__branding {
+  display: flex;
+  align-items: center;
+
+  height: $header-height;
+  width: $header-branding-width;
+
+  &::ng-deep > [mtr-header__branding] {
+    width: auto;
+
+    margin: 0;
+    padding: $spacing-xs $spacing-l;
+
+    color: var(--header-color-contrast);
+  }
+}
+
+.mtr-header__nav-items {
+  display: flex;
+  flex-direction: row;
+
+  height: $header-height;
+
+  padding: 0 $spacing-s;
+
+  &::ng-deep > a[mtr-header__nav-item] {
+    display: block;
+
+    height: $header-height;
+    line-height: $header-height;
+
+    padding: 0 $spacing-s;
+
+    text-decoration: none;
+
+    color: var(--header-color-contrast);
+
+    &.mtr-header__nav-item--active {
+      border-bottom: 4px solid var(--header-color-contrast);
+    }
+
+    &:hover {
+      background-color: var(--header-color-light);
+    }
+    &:active {
+      background-color: var(--header-color-lighter);
+    }
+  }
+}

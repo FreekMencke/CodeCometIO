@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from 'projects/code-comet-io/src/app/shared/shared.module';
 import { ButtonDocsComponent } from './button/button-docs.component';
-import { MeteorSideMenuModule, MeteorButtonModule } from 'meteor';
+import { MeteorSideMenuModule, MeteorButtonModule, MeteorHeaderModule } from 'meteor';
 import { DocsRoutingModule } from './docs-routing.module';
 import { DocsComponent } from './docs.component';
 import { SideMenuDocsComponent } from './side-menu/side-menu-docs.component';
+import { SharedModule } from '../shared/shared.module';
+import { HeaderDocsComponent } from './header/header-docs.component';
+import { ContainerDocsComponent } from './container/container-docs.component';
 
 @NgModule({
   imports: [
@@ -14,9 +16,11 @@ import { SideMenuDocsComponent } from './side-menu/side-menu-docs.component';
     MeteorSideMenuModule,
   ],
   declarations: [
-    ButtonDocsComponent,
-    SideMenuDocsComponent,
     DocsComponent,
+    ButtonDocsComponent,
+    ContainerDocsComponent,
+    HeaderDocsComponent,
+    SideMenuDocsComponent,
   ],
 })
 export class DocsModule { }

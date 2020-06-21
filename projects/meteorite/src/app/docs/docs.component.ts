@@ -6,4 +6,13 @@ import { MeteorSideMenuService } from 'meteor';
   templateUrl: './docs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DocsComponent { }
+export class DocsComponent {
+
+  readonly availableDocs: { path: string, text: string }[] = [
+    { path: 'button', text: 'Button' },
+    { path: 'container', text: 'Container' },
+    { path: 'header', text: 'Header' },
+    { path: 'side-menu', text: 'Side Menu' },
+  ];
+
+}
