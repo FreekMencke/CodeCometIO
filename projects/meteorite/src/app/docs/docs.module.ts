@@ -14,6 +14,7 @@ import { ContainerDocsComponent } from './container/container-docs.component';
     DocsRoutingModule,
     MeteorButtonModule,
     MeteorSideMenuModule,
+    MeteorHeaderModule,
   ],
   declarations: [
     DocsComponent,
