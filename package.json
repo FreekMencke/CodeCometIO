@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
+    "prismjs": "^1.20.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
@@ -32,6 +33,7 @@
     "@angular/compiler-cli": "~10.0.0",
     "@angular/language-service": "~10.0.0",
     "@types/node": "^12.12.47",
+    "@types/prismjs": "^1.16.1",
     "codelyzer": "^5.2.1",
     "cz-conventional-changelog": "^3.2.0",
     "ng-packagr": "^10.0.0",

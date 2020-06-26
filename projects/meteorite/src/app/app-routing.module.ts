@@ -6,12 +6,12 @@ const routes: Routes = [
   {
     path: 'home',
     pathMatch: 'full',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'docs',
     pathMatch: 'prefix',
-    loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule),
+    loadChildren: () => import('./features/docs/docs.module').then(m => m.DocsModule),
   },
 ];
 

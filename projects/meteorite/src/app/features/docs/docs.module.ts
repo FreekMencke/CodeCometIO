@@ -4,7 +4,7 @@ import { MeteorSideMenuModule, MeteorButtonModule, MeteorHeaderModule } from 'me
 import { DocsRoutingModule } from './docs-routing.module';
 import { DocsComponent } from './docs.component';
 import { SideMenuDocsComponent } from './side-menu/side-menu-docs.component';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { HeaderDocsComponent } from './header/header-docs.component';
 import { ContainerDocsComponent } from './container/container-docs.component';
 

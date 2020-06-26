@@ -22,11 +22,17 @@
 
   background-color: var(--side-menu-item-color);
   color: var(--side-menu-item-color-contrast);
+
   outline: none;
+  user-select: none;
 
   border-bottom: 1px solid var(--side-menu-item-color-lighter);
   &:first-of-type {
     border-top: 1px solid var(--side-menu-item-color-lighter);
+  }
+
+  &.mtr-side-menu-item--active {
+    background-color: var(--side-menu-item-color-light);
   }
 
   &:hover {
@@ -34,10 +40,6 @@
   }
   &:active {
     background-color: var(--side-menu-item-color-lighter);
-  }
-
-  &.mtr-side-menu-item--active {
-    background-color: var(--side-menu-item-color-light);
   }
 }
 

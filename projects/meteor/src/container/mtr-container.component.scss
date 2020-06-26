@@ -7,8 +7,6 @@
   width: 100%;
   height: 100%;
   max-width: 1280px;
-
-  margin: auto;
 }
 
 :host.mtr-container--has-header {
@@ -17,4 +15,8 @@
 
 :host.mtr-container--full-width {
   max-width: 100%;
+}
+
+:host.mtr-container--center {
+  margin: auto;
 }

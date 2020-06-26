@@ -1,0 +1,23 @@
+@import "meteor/src/style/variables";
+
+mtr-btn {
+  margin: $spacing-s $spacing-m;
+  margin-right: 0;
+}
+
+.two-columns {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: -$spacing-m;
+  margin-right: -$spacing-s;
+  margin-bottom: $spacing-m;
+  margin-left: -$spacing-s;
+
+  & pre {
+    flex: 1 400px;
+    margin-right: $spacing-s;
+    margin-left: $spacing-s;
+    margin-bottom: 0 !important;
+  }
+}

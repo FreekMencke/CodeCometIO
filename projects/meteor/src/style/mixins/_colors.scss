@@ -10,16 +10,16 @@
 
 @function chooseLightColor($bgColor) {
   @if (lightness($bgColor) > 20) {
-    @return darken($bgColor, 6%);
+    @return darken($bgColor, 8%);
   } @else {
-    @return lighten($bgColor, 6%);
+    @return lighten($bgColor, 8%);
   }
 }
 
 @function chooseLighterColor($bgColor) {
   @if (lightness($bgColor) > 20) {
-    @return darken($bgColor, 10%);
+    @return darken($bgColor, 12%);
   } @else {
-    @return lighten($bgColor, 10%);
+    @return lighten($bgColor, 12%);
   }
 }
