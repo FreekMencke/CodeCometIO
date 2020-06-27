@@ -42,10 +42,12 @@ header {
   width: $header-branding-width;
 
   &::ng-deep > [mtr-header__branding] {
+    height: $header-height;
+    line-height: #{$header-height - $spacing-m};
     width: auto;
 
     margin: 0;
-    padding: $spacing-xs $spacing-l;
+    padding: $spacing-s $spacing-l;
 
     color: var(--header-color-contrast);
   }

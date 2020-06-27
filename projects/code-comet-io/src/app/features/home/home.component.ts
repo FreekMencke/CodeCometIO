@@ -4,11 +4,10 @@ import { Component, OnInit } from '@angular/core';
   selector: 'cc-home',
   templateUrl: './home.component.html',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  goToMeteorite(): void {
+    window.location.assign('/CodeCometIO/meteorite');
   }
 
 }

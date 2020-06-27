@@ -1,8 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { HeaderModule } from './components/cc-header.module';
+import { MeteorContainerModule } from 'meteor';
 
 const MODULES = [
   CommonModule,
+  HeaderModule,
+  MeteorContainerModule,
 ];
 
 @NgModule({
