@@ -8,6 +8,7 @@ import { MeteorSideMenuService } from './mtr-side-menu.service';
   template: '<ng-content></ng-content>',
   styleUrls: ['./mtr-side-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [MeteorSideMenuService],
 })
 export class MeteorSideMenuComponent implements OnInit, OnDestroy {
 

@@ -54,3 +54,45 @@
     );
   }
 }
+
+:host[inverse] {
+  @include itemColors(
+    chooseContrastColor($primary),
+    $primary,
+    chooseLightColor($primary),
+    chooseLighterColor($primary)
+  );
+
+  &.mtr-side-menu-item--active {
+    color: var(--side-menu-item-color);
+  }
+
+  &:hover {
+    color: var(--side-menu-item-color);
+  }
+  &:active {
+    color: var(--side-menu-item-color);
+  }
+}
+
+@each $name, $value in $colors {
+  :host.#{"" + $name},
+  :host[#{"" + $name}] {
+    @include itemColors(
+      $value,
+      chooseContrastColor($value),
+      chooseLightColor($value),
+      chooseLighterColor($value)
+    );
+  }
+
+  :host.#{"" + $name}.inverse,
+  :host[#{"" + $name}][inverse] {
+    @include itemColors(
+      chooseContrastColor($value),
+      $value,
+      chooseLightColor($value),
+      chooseLighterColor($value)
+    );
+  }
+}

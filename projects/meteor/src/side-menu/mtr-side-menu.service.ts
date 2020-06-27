@@ -1,26 +1,24 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class MeteorSideMenuService {
 
-  private _open: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  private isOpen: BehaviorSubject<boolean> = new BehaviorSubject(true);
   get isOpen$(): Observable<boolean> {
-    return this._open.asObservable();
+    return this.isOpen.asObservable();
   }
 
   open(): void {
-    this._open.next(true);
+    this.isOpen.next(true);
   }
 
   close(): void {
-    this._open.next(false);
+    this.isOpen.next(false);
   }
 
   toggle(): void {
-    this._open.next(!this._open.value);
+    this.isOpen.next(!this.isOpen.value);
   }
 
 }
