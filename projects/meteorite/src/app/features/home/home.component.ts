@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
   goToCodeCometIO(): void {
-    window.location.assign('/');
+    window.location.assign('/CodeCometIO/');
   }
 
 }
