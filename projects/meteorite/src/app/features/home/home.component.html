@@ -1,20 +1,18 @@
 <mit-header></mit-header>
 
-<mtr-container>
-  <main class="p--l text--center">
+<mtr-banner>
+  <mtr-container class="p--l text--center">
+    <h1 class=" mb--xl">
+      Meteorite
+      <div class="mtr-subtitle">The Meteor styleguide</div>
+    </h1>
+    <mtr-btn routerLink="/docs" outline white>Go to documentation</mtr-btn>
+  </mtr-container>
+</mtr-banner>
 
-    <div class="p--xxl">
-      <h1 class="mb--xl">
-        Meteorite
-        <div class="mtr-subtitle">The Meteor styleguide</div>
-      </h1>
-      <mtr-btn routerLink="/docs">Go to documentation</mtr-btn>
-    </div>
-
-    <div class="p--xxl">
-      <h2 class="mb--xl">Created by</h2>
-      <img src="assets/logo-light.svg" style="display: inline-block; max-width: 512px;">
-    </div>
-
-  </main>
-</mtr-container>
+<mtr-banner black inverse>
+  <mtr-container class="p--l text--center">
+    <h2 class="mb--xl">Created by</h2>
+    <img src="assets/logo-light.svg" class="made-by" (click)="goToCodeCometIO()">
+  </mtr-container>
+</mtr-banner>

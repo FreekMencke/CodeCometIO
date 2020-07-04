@@ -9,12 +9,12 @@ import { PrismService } from '../../../core/formatting/prism.service';
 export class BannerDocsComponent implements AfterViewInit {
 
   codeExample: string = `
-<mtr-header inverse>
+<mtr-header secondary inverse>
   <h1 mtr-header__branding>Meteor</h1>
   <a mtr-header__nav-item>Home</a>
   <a mtr-header__nav-item class="mtr-header__nav-item--active">Documentation</a>
 </mtr-header>
-<mtr-banner>
+<mtr-banner secondary>
   <mtr-container class="p--l text--center">
     <h1 class="mb--xl">
       Meteorite
@@ -24,7 +24,7 @@ export class BannerDocsComponent implements AfterViewInit {
   </mtr-container>
 </mtr-banner>
 <mtr-container class="p--l">
-  <h2>Howdy!</h2>
+  <h2 secondary>Howdy!</h2>
   <p>How are you doing today?</p>
 </mtr-container>`.trim();
 

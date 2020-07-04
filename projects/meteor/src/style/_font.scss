@@ -14,20 +14,18 @@
   }
 }
 
+@mixin bannerColors($color, $colorSub) {
+  --heading-color: #{$color};
+  --subheading-color: #{$colorSub};
+}
+
 h1,
-h1 *,
 h2,
-h2 *,
 h3,
-h3 *,
 h4,
-h4 *,
 h5,
-h5 *,
-h6,
-h6 * {
-  --heading-color: #{chooseLightColor($primary)};
-  --subheading-color: #{chooseLighterColor($primary)};
+h6 {
+  @include bannerColors($primary, $primary);
 
   color: var(--heading-color);
 
@@ -39,10 +37,24 @@ h6 * {
 
   margin-bottom: $spacing-m;
 
-  div.mtr-subtitle {
+  .mtr-subtitle {
     color: var(--subheading-color);
     font-size: 70%;
     font-weight: 300;
+  }
+}
+
+@each $name, $value in $colors {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    .#{"" + $name},
+    &[#{"" + $name}] {
+      @include bannerColors($value, $value);
+    }
   }
 }
 
