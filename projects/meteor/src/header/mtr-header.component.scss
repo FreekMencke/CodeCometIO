@@ -1,5 +1,4 @@
-@import "../style/variables/colors";
-@import "../style/variables/spacing";
+@import "../style/variables";
 @import "../style/mixins";
 
 $header-height: 64px;
@@ -88,6 +87,7 @@ header {
   }
 }
 
+:host.inverse header,
 :host[inverse] header {
   @include headerColors(
     chooseContrastColor(chooseLightColor($primary)),

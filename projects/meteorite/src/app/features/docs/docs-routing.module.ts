@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BannerDocsComponent } from './banner/banner-docs.component';
 import { ButtonDocsComponent } from './button/button-docs.component';
-import { DocsComponent } from './docs.component';
-import { SideMenuDocsComponent } from './side-menu/side-menu-docs.component';
-import { HeaderDocsComponent } from './header/header-docs.component';
 import { ContainerDocsComponent } from './container/container-docs.component';
+import { DocsComponent } from './docs.component';
+import { HeaderDocsComponent } from './header/header-docs.component';
+import { SideMenuDocsComponent } from './side-menu/side-menu-docs.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
     pathMatch: 'prefix',
     component: DocsComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'button' },
+      { path: '', pathMatch: 'full', redirectTo: 'banner' },
+      { path: 'banner', component: BannerDocsComponent },
       { path: 'button', component: ButtonDocsComponent },
       { path: 'container', component: ContainerDocsComponent },
       { path: 'header', component: HeaderDocsComponent },

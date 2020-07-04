@@ -9,6 +9,7 @@ import { MeteorSideMenuService } from 'meteor';
 export class DocsComponent {
 
   readonly availableDocs: { path: string, text: string }[] = [
+    { path: 'banner', text: 'Banner' },
     { path: 'button', text: 'Button' },
     { path: 'container', text: 'Container' },
     { path: 'header', text: 'Header' },
