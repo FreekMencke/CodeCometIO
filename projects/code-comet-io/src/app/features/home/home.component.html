@@ -1,6 +1,13 @@
 <cc-header></cc-header>
 
-<mtr-container>
+<mtr-banner dark>
+  <mtr-container>
+    <img class="logo p--xl" src="assets/logo-dark.svg" />
+    <h1 class="mt--xxl text--center">Software that's out of this world.</h1>
+  </mtr-container>
+</mtr-banner>
+
+<mtr-container [expandHeight]="false">
   <main class="p--l">
     <mtr-btn (click)="goToMeteorite()">
       Go to Meteorite
