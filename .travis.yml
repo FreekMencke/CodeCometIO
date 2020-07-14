@@ -9,8 +9,9 @@ branches:
     - master
 
 script:
-  - ng lint
-  - npm run build:ci
+  - npm ci
+  - npx ng lint
+  - npm run build:prod
 
 deploy:
   provider: pages
