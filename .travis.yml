@@ -1,0 +1,22 @@
+language: node_js
+dist: trusty
+node_js: "12"
+
+cache: npm
+
+branches:
+  only:
+    - master
+
+script:
+  - ng lint
+  - npm run build:ci
+
+deploy:
+  provider: pages
+  local_dir: docs
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: master
