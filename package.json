@@ -7,9 +7,9 @@
     "build:meteor": "ng build meteor",
     "build:meteorite": "ng build meteorite --base-href /CodeCometIO/meteorite/",
     "build:code-comet-io": "ng build code-comet-io --base-href /CodeCometIO/",
-    "prebuild:prod": "npm run clean && rm -rf docs/",
+    "prebuild:prod": "npm run clean && rm -rf dist/",
     "build:prod": "npm run build:meteor -- --prod && npm run build:meteorite -- --prod && npm run build:code-comet-io -- --prod",
-    "postbuild:prod": "cp -r dist/code-comet-io docs/ && cp -r dist/meteorite docs/meteorite/"
+    "postbuild:prod": "cp -r dist/code-comet-io dist/deploy && cp -r dist/meteorite  dist/deploy/meteorite/"
   },
   "private": true,
   "dependencies": {
