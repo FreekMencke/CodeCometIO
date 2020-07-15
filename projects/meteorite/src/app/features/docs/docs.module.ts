@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { MeteorBannerModule, MeteorButtonModule, MeteorHeaderModule, MeteorSideMenuModule } from 'meteor';
+import { MeteorBannerModule, MeteorButtonModule, MeteorCardModule, MeteorHeaderModule, MeteorSideMenuModule } from 'meteor';
 import { SharedModule } from '../../shared/shared.module';
 import { BannerDocsComponent } from './banner/banner-docs.component';
 import { ButtonDocsComponent } from './button/button-docs.component';
+import { CardDocsComponent } from './card/card-docs.component';
 import { ContainerDocsComponent } from './container/container-docs.component';
 import { DocsRoutingModule } from './docs-routing.module';
 import { DocsComponent } from './docs.component';
@@ -15,6 +16,7 @@ import { SideMenuDocsComponent } from './side-menu/side-menu-docs.component';
     DocsRoutingModule,
     MeteorBannerModule,
     MeteorButtonModule,
+    MeteorCardModule,
     MeteorSideMenuModule,
     MeteorHeaderModule,
   ],
@@ -22,6 +24,7 @@ import { SideMenuDocsComponent } from './side-menu/side-menu-docs.component';
     DocsComponent,
     BannerDocsComponent,
     ButtonDocsComponent,
+    CardDocsComponent,
     ContainerDocsComponent,
     HeaderDocsComponent,
     SideMenuDocsComponent,
