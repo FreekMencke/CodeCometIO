@@ -17,9 +17,10 @@ script:
 
 deploy:
   provider: pages
-  strategy: git
   token: $GITHUB_TOKEN
+  strategy: git
   local_dir: dist/deploy
   keep_history: true
+  edge: true
   on:
     branch: master
