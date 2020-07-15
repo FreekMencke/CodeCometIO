@@ -1,6 +1,8 @@
 language: node_js
-dist: trusty
 node_js: "12"
+
+os: linux
+dist: trusty
 
 cache: npm
 
@@ -15,9 +17,10 @@ script:
 
 deploy:
   provider: pages
+  strategy: git
+  token: $GITHUB_TOKEN
   local_dir: dist/deploy
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  cleanup: false
   keep_history: true
   on:
     branch: master
