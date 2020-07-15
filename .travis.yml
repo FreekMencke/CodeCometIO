@@ -20,7 +20,6 @@ deploy:
   strategy: git
   token: $GITHUB_TOKEN
   local_dir: dist/deploy
-  cleanup: false
   keep_history: true
   on:
     branch: master
