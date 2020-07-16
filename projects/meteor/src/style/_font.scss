@@ -11,6 +11,9 @@
   .mtr-text--bold,
   .mtr-text--bold * {
     font-weight: 700;
+    .mtr-subtitle {
+      font-weight: 500;
+    }
   }
 }
 
@@ -43,6 +46,7 @@ h6 {
 
   .mtr-subtitle {
     color: var(--subheading-color);
+    font-family: "Montserrat", sans-serif;
     font-size: 70%;
     font-weight: 300;
   }
