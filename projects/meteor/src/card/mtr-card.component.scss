@@ -16,4 +16,8 @@
 .mtr-card--actions {
   padding: $spacing-s;
   padding-top: 0;
+
+  ::ng-deep mtr-btn + mtr-btn {
+    margin-left: $spacing-s;
+  }
 }
