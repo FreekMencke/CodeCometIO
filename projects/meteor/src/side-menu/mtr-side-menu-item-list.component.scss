@@ -49,18 +49,24 @@
 :host[inverse] {
   @include itemColors(
     chooseContrastColor(chooseLightColor($primary)),
-    $primary
+    chooseLightColor($primary)
   );
 }
 
 @each $name, $value in $colors {
   :host.#{"" + $name},
   :host[#{"" + $name}] {
-    @include itemColors($value, chooseContrastColor(chooseLightColor($value)));
+    @include itemColors(
+      chooseLightColor($value),
+      chooseContrastColor(chooseLightColor($value))
+    );
   }
 
   :host.#{"" + $name}.inverse,
   :host[#{"" + $name}][inverse] {
-    @include itemColors(chooseContrastColor(chooseLightColor($value)), $value);
+    @include itemColors(
+      chooseContrastColor(chooseLightColor($value)),
+      chooseLightColor($value)
+    );
   }
 }

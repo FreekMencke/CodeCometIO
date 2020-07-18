@@ -1,0 +1,21 @@
+<mtr-container [fullWidth]="true">
+  <mtr-side-menu>
+    <mtr-side-menu-item-list title="Projects" dark>
+      <mtr-side-menu-item [routerLink]="'/projects/'" routerLinkActive="mtr-side-menu-item--active">
+        Meteorite
+      </mtr-side-menu-item>
+      <mtr-side-menu-item [routerLink]="'/projects/'">
+        OSRS Tracker
+      </mtr-side-menu-item>
+    </mtr-side-menu-item-list>
+
+    <mtr-side-menu-content>
+      <mtr-container [center]="false">
+        <main>
+          <router-outlet></router-outlet>
+        </main>
+      </mtr-container>
+    </mtr-side-menu-content>
+
+  </mtr-side-menu>
+</mtr-container>

@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'cc-app',
-  template: `
-    <cc-header></cc-header>
-    <router-outlet></router-outlet>
-  `,
+  selector: 'cc-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent { }
+export class ProjectsComponent { }

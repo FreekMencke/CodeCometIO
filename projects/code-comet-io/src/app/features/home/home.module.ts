@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
+import { MeteorBannerModule, MeteorButtonModule, MeteorCardModule } from 'meteor';
 import { SharedModule } from '../../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { MeteorButtonModule, MeteorBannerModule } from 'meteor';
 
 @NgModule({
   declarations: [
@@ -13,6 +13,7 @@ import { MeteorButtonModule, MeteorBannerModule } from 'meteor';
     HomeRoutingModule,
     MeteorBannerModule,
     MeteorButtonModule,
+    MeteorCardModule,
   ],
 })
 export class HomeModule { }
