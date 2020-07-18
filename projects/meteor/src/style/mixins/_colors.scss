@@ -1,7 +1,7 @@
 @import "../variables/colors";
 
 @function chooseContrastColor($bgColor) {
-  @if (lightness($bgColor) > 50) {
+  @if (lightness($bgColor) > 60) {
     @return $black;
   } @else {
     @return $white;
