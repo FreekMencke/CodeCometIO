@@ -5,17 +5,6 @@
   </mtr-container>
 </mtr-banner>
 
-<mtr-banner>
-  <mtr-container class="p--xl">
-    <h1 class="text--center">{{ about.title }}</h1>
-
-    <div class="cc-about">
-      <img [src]="about.imageSrc" class="mt--xl">
-      <div class="mtr-text--large mt--xl" [innerHTML]="about.text"></div>
-    </div>
-  </mtr-container>
-</mtr-banner>
-
 <mtr-container [expandHeight]="false" class="p--xl my--l">
   <h1 class="text--center">Projects</h1>
 
@@ -40,5 +29,16 @@
     <mtr-btn routerLink="/projects" outline>More projects</mtr-btn>
   </div>
 </mtr-container>
+
+<mtr-banner>
+  <mtr-container class="p--xl">
+    <h1 class="text--center">{{ about.title }}</h1>
+
+    <div class="cc-about">
+      <img [src]="about.imageSrc" class="mt--xl">
+      <div class="mtr-text--large mt--xl" [innerHTML]="about.text"></div>
+    </div>
+  </mtr-container>
+</mtr-banner>
 
 <cc-footer></cc-footer>
