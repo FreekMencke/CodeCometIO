@@ -1,6 +1,7 @@
 export class ProjectCardAction {
   name: string;
-  actionFn: () => void;
+  internalRoute?: string;
+  externalRoute?: string;
 }
 
 export class ProjectCard {

@@ -10,7 +10,10 @@
     "array-type": false,
     "arrow-parens": false,
     "arrow-return-shorthand": true,
-    "curly": true,
+    "curly": [
+      true,
+      "ignore-same-line"
+    ],
     "deprecation": {
       "severity": "error"
     },
@@ -130,8 +133,8 @@
       ]
     },
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
-  ,    "variable-name": {
+    "use-pipe-transform-interface": true,
+    "variable-name": {
       "options": [
         "ban-keywords",
         "check-format",
@@ -148,7 +151,7 @@
         "check-typecast"
       ]
     }
-},
+  },
   "rulesDirectory": [
     "codelyzer"
   ]

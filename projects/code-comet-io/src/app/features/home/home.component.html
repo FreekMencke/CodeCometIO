@@ -11,17 +11,18 @@
       <h1 class="text--center">Projects</h1>
 
       <div class="cc-project-cards mb--xxl">
-        <mtr-card class="mt--xl" *ngFor="let project of projects">
-          <div card--banner [style.backgroundImage]="'url('+project.imageSrc+')'"></div>
+        <mtr-card class="mt--xl" *ngFor="let projectCard of projectCards">
+          <div card--banner [style.backgroundImage]="'url('+projectCard.imageSrc+')'"></div>
           <div card--content>
             <h2 class="mtr-text--bold">
-              {{ project.title }}
-              <div class="mtr-subtitle">{{ project.subtitle }}</div>
+              {{ projectCard.title }}
+              <div class="mtr-subtitle">{{ projectCard.subtitle }}</div>
             </h2>
-            <div [innerHTML]="project.text"></div>
+            <div [innerHTML]="projectCard.text"></div>
           </div>
           <div card--actions>
-            <mtr-btn flat *ngFor="let action of project.actions" (click)="action.actionFn()">{{ action.name }}</mtr-btn>
+            <mtr-btn flat *ngFor="let action of projectCard.actions" (click)="onActionClick(action)">{{ action.name }}
+            </mtr-btn>
           </div>
         </mtr-card>
       </div>
