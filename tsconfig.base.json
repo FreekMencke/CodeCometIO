@@ -8,6 +8,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
     "strictNullChecks": true,
     "sourceMap": true,
     "declaration": false,
