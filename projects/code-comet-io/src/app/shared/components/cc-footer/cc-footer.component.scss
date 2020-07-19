@@ -1,0 +1,37 @@
+.cc-footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &__copyright,
+  &__social,
+  &__spacer {
+    flex: 1 0;
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    a {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: flex-end;
+
+      img {
+        height: 18px;
+        width: auto;
+      }
+
+      & + a {
+        margin-left: 8px;
+      }
+
+      &:hover {
+        filter: brightness(0.5);
+      }
+    }
+  }
+}

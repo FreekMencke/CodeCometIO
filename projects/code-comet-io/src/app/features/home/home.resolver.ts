@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { PrismicService } from '../../core/prismic/prismic.service';
+import { HomePage } from './models/home-page.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,13 @@ export class HomeResolver implements Resolve<any> {
   ) { }
 
   resolve(): Observable<any> {
-    return this.prismicService.getProjectCards();
+    return forkJoin([
+      this.prismicService.getAbout(),
+      this.prismicService.getProjectCards(),
+    ]).pipe(map(([about, projectCards]) => ({
+      about,
+      projectCards,
+    } as HomePage)));
   }
 
 }

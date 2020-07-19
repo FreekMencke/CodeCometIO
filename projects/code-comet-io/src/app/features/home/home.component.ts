@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { About } from './models/about.model';
+import { HomePage } from './models/home-page.model';
 import { ProjectCard, ProjectCardAction } from './models/project-card.model';
 
 @Component({
@@ -9,6 +11,7 @@ import { ProjectCard, ProjectCardAction } from './models/project-card.model';
 })
 export class HomeComponent implements OnInit {
 
+  about: About;
   projectCards: ProjectCard[];
 
   constructor(
@@ -17,7 +20,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.projectCards = this.activatedRoute.snapshot.data.projectCards;
+    const homePage: HomePage = this.activatedRoute.snapshot.data.homePage;
+    this.about = homePage.about;
+    this.projectCards = this.activatedRoute.snapshot.data.homePage.projectCards;
   }
 
   onActionClick(action: ProjectCardAction): void {

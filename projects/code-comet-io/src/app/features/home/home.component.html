@@ -1,36 +1,44 @@
 <mtr-banner dark>
-  <mtr-container>
-    <img class="logo p--xl" src="assets/logo-dark.svg" />
+  <mtr-container class="p--xl">
+    <img class="logo py--xl" src="assets/logo-dark.svg" />
     <h1 class="mt--xxl text--center">Software that's out of this world.</h1>
   </mtr-container>
 </mtr-banner>
 
-<mtr-container [expandHeight]="false">
-  <main class="px--l py--xl">
-    <div class="my--xl">
-      <h1 class="text--center">Projects</h1>
+<mtr-banner>
+  <mtr-container class="p--xl">
+    <h1 class="text--center">{{ about.title }}</h1>
 
-      <div class="cc-project-cards mb--xxl">
-        <mtr-card class="mt--xl" *ngFor="let projectCard of projectCards">
-          <div card--banner [style.backgroundImage]="'url('+projectCard.imageSrc+')'"></div>
-          <div card--content>
-            <h2 class="mtr-text--bold">
-              {{ projectCard.title }}
-              <div class="mtr-subtitle">{{ projectCard.subtitle }}</div>
-            </h2>
-            <div [innerHTML]="projectCard.text"></div>
-          </div>
-          <div card--actions>
-            <mtr-btn flat *ngFor="let action of projectCard.actions" (click)="onActionClick(action)">{{ action.name }}
-            </mtr-btn>
-          </div>
-        </mtr-card>
-      </div>
-
-      <div class="text--center">
-        <mtr-btn routerLink="/projects" outline>More projects</mtr-btn>
-      </div>
+    <div class="cc-about">
+      <img [src]="about.imageSrc" class="mt--xl">
+      <div class="mtr-text--large mt--xl" [innerHTML]="about.text"></div>
     </div>
+  </mtr-container>
+</mtr-banner>
 
-  </main>
+<mtr-container [expandHeight]="false" class="p--xl my--l">
+  <h1 class="text--center">Projects</h1>
+
+  <div class="cc-project-cards mb--xxl">
+    <mtr-card class="mt--xl" *ngFor="let projectCard of projectCards">
+      <div card--banner [style.backgroundImage]="'url('+projectCard.imageSrc+')'"></div>
+      <div card--content>
+        <h2 class="mtr-text--bold">
+          {{ projectCard.title }}
+          <div class="mtr-subtitle">{{ projectCard.subtitle }}</div>
+        </h2>
+        <div [innerHTML]="projectCard.text"></div>
+      </div>
+      <div card--actions>
+        <mtr-btn flat *ngFor="let action of projectCard.actions" (click)="onActionClick(action)">{{ action.name }}
+        </mtr-btn>
+      </div>
+    </mtr-card>
+  </div>
+
+  <div class="text--center">
+    <mtr-btn routerLink="/projects" outline>More projects</mtr-btn>
+  </div>
 </mtr-container>
+
+<cc-footer></cc-footer>

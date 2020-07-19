@@ -13,10 +13,9 @@
   padding: $spacing-xl 0;
 
   background-color: var(--banner-color);
-  color: var(--banner-color-contrast);
 
   .mtr-banner__content {
-    padding: $spacing-xl 0;
+    color: var(--banner-color-contrast);
 
     &::ng-deep * {
       color: var(--banner-color-contrast);

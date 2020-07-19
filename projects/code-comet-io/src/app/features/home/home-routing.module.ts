@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: HomeComponent,
-    resolve: { projectCards: HomeResolver },
+    resolve: { homePage: HomeResolver },
   },
 ];
 

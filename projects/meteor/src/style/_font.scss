@@ -7,14 +7,24 @@
 * {
   color: $dark;
   font-family: "Lato", sans-serif;
+}
 
-  .mtr-text--bold,
-  .mtr-text--bold * {
-    font-weight: 700;
-    .mtr-subtitle {
-      font-weight: 500;
-    }
+.mtr-text--bold,
+.mtr-text--bold * {
+  font-weight: 700;
+  .mtr-subtitle {
+    font-weight: 500;
   }
+}
+
+.mtr-text--large,
+.mtr-text--large * {
+  font-size: 110%;
+}
+
+.mtr-text--small,
+.mtr-text--small * {
+  font-size: 90%;
 }
 
 @mixin bannerColors($color, $colorSub) {
