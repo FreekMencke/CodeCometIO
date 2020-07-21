@@ -16,11 +16,12 @@ script:
   - npm run build:prod
 
 deploy:
+  edge: true
   provider: pages
-  token: $GITHUB_TOKEN
   strategy: git
+  token: $GITHUB_TOKEN
   local_dir: dist/deploy
   keep_history: true
-  edge: true
+  fqdn: codecomet.io
   on:
     branch: master
