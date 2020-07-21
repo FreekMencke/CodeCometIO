@@ -1,11 +1,9 @@
 <mtr-container [fullWidth]="true">
   <mtr-side-menu>
     <mtr-side-menu-item-list title="Projects" dark>
-      <mtr-side-menu-item [routerLink]="'/projects/'" routerLinkActive="mtr-side-menu-item--active">
-        Meteorite
-      </mtr-side-menu-item>
-      <mtr-side-menu-item [routerLink]="'/projects/'">
-        OSRS Tracker
+      <mtr-side-menu-item *ngFor="let project of projects" [routerLink]="'/projects/' + project.path"
+        routerLinkActive="mtr-side-menu-item--active" [routerLinkActiveOptions]="{exact: true}">
+        {{ project.name }}
       </mtr-side-menu-item>
     </mtr-side-menu-item-list>
 

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ProjectRoutes } from './projects.routes';
 
 @Component({
   selector: 'cc-projects',
@@ -6,4 +7,17 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectsComponent { }
+export class ProjectsComponent {
+
+  readonly projects: { name: string, path: string }[] = [
+    {
+      name: 'Meteor',
+      path: ProjectRoutes.Meteor,
+    },
+    {
+      name: 'OSRS Tracker',
+      path: ProjectRoutes.OSRSTracker,
+    },
+  ];
+
+}

@@ -20,9 +20,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const homePage: HomePage = this.activatedRoute.snapshot.data.homePage;
+    const homePage = this.activatedRoute.snapshot.data.homePage as HomePage;
     this.about = homePage.about;
-    this.projectCards = this.activatedRoute.snapshot.data.homePage.projectCards;
+    this.projectCards = homePage.projectCards;
   }
 
   onActionClick(action: ProjectCardAction): void {
