@@ -8,20 +8,18 @@ import { HomePage } from './models/home-page.model';
 @Injectable({
   providedIn: 'root',
 })
-export class HomeResolver implements Resolve<any> {
+export class HomeResolver implements Resolve<HomePage> {
 
-  constructor(
-    private prismicService: PrismicService,
-  ) { }
+  constructor(private prismicService: PrismicService) { }
 
-  resolve(): Observable<any> {
+  resolve(): Observable<HomePage> {
     return forkJoin([
       this.prismicService.getAbout(),
       this.prismicService.getProjectCards(),
     ]).pipe(map(([about, projectCards]) => ({
       about,
       projectCards,
-    } as HomePage)));
+    })));
   }
 
 }

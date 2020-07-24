@@ -1,0 +1,8 @@
+<h1>
+  {{ project.title }}
+  <div class="mtr-subtitle">{{ project.subtitle }}</div>
+</h1>
+
+<div class="project__banner mb--xl" [style.backgroundImage]="'url('+project.bannerSrc+')'"></div>
+
+<div [innerHTML]="project.content"></div>

@@ -8,14 +8,20 @@
   max-width: 1280px;
 }
 
-:host.mtr-container--expand-height {
-  height: calc(100% - 64px);
-}
+:host.mtr-container {
+  &--expand-height {
+    height: 100%;
+  }
 
-:host.mtr-container--full-width {
-  max-width: 100%;
-}
+  &--expand-with-header {
+    height: calc(100% - 64px);
+  }
 
-:host.mtr-container--center {
-  margin: auto;
+  &--full-width {
+    max-width: 100%;
+  }
+
+  &--center {
+    margin: auto;
+  }
 }

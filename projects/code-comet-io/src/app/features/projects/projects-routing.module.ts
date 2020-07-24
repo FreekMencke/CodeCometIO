@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MeteorProjectComponent } from './meteor/meteor-project.component';
-import { OSRSTrackerProjectComponent } from './osrs-tracker/osrs-tracker-project.component';
+import { ProjectComponent } from './project/project.component';
+import { ProjectResolver } from './project/project.resolver';
 import { ProjectsComponent } from './projects.component';
 import { ProjectRoutes } from './projects.routes';
 
@@ -12,8 +12,17 @@ const routes: Routes = [
     component: ProjectsComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: ProjectRoutes.Meteor },
-      { path: ProjectRoutes.Meteor, pathMatch: 'full', component: MeteorProjectComponent },
-      { path: ProjectRoutes.OSRSTracker, pathMatch: 'full', component: OSRSTrackerProjectComponent },
+      {
+        path: ProjectRoutes.Meteor,
+        component: ProjectComponent,
+        data: { projectId: 'XxrG4BEAACUAmHPv' },
+        resolve: { project: ProjectResolver },
+      }, {
+        path: ProjectRoutes.OSRSTracker,
+        component: ProjectComponent,
+        data: { projectId: 'Xxq2mREAACMAmCol' },
+        resolve: { project: ProjectResolver },
+      },
     ],
   },
 ];

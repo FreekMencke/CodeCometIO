@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'mtr-container',
@@ -8,7 +8,8 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
 })
 export class MeteorContainerComponent {
 
-  @Input() @HostBinding('class.mtr-container--expand-height') expandHeight: boolean = true;
+  @Input() @HostBinding('class.mtr-container--expand-with-header') expandWithHeader: boolean = false;
+  @Input() @HostBinding('class.mtr-container--expand-height') expandHeight: boolean = false;
   @Input() @HostBinding('class.mtr-container--full-width') fullWidth: boolean = false;
   @Input() @HostBinding('class.mtr-container--center') center: boolean = true;
 
