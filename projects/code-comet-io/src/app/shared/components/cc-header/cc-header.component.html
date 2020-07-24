@@ -1,5 +1,7 @@
 <mtr-header dark>
-  <img mtr-header__branding src="assets/logo-dark.svg" />
+  <a mtr-header__branding routerLink="/">
+    <img src="assets/logo-dark.svg" />
+  </a>
   <a mtr-header__nav-item routerLink="/" routerLinkActive="mtr-header__nav-item--active"
     [routerLinkActiveOptions]="{exact: true}">Home</a>
   <a mtr-header__nav-item routerLink="/projects" routerLinkActive="mtr-header__nav-item--active">Projects</a>
