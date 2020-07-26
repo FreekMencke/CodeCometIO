@@ -1,7 +1,5 @@
-@import "meteor/src/style/variables";
-
 mtr-btn {
-  margin: $spacing-s $spacing-m;
+  margin: var(--spacing-s) var(--spacing-m);
   margin-right: 0;
 }
 
@@ -9,15 +7,15 @@ mtr-btn {
   display: flex;
   flex-wrap: wrap;
 
-  margin-top: -$spacing-m;
-  margin-right: -$spacing-s;
-  margin-bottom: $spacing-m;
-  margin-left: -$spacing-s;
+  margin-top: calc(-1 * var(--spacing-m));
+  margin-right: calc(-1 * var(--spacing-s));
+  margin-bottom: var(--spacing-m);
+  margin-left: calc(-1 * var(--spacing-s));
 
   & pre {
     flex: 1 400px;
-    margin-right: $spacing-s;
-    margin-left: $spacing-s;
+    margin-right: var(--spacing-s);
+    margin-left: var(--spacing-s);
     margin-bottom: 0 !important;
   }
 }

@@ -4,6 +4,6 @@
   align-items: flex-start;
 
   mtr-card + mtr-card {
-    margin-left: 24px;
+    margin-left: var(--spacing-l);
   }
 }

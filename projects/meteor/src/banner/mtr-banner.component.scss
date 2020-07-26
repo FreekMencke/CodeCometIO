@@ -3,22 +3,22 @@
 
 @mixin bannerColors($color, $contrast) {
   --banner-color: #{$color};
-  --banner-color-contrast: #{$contrast};
+  --banner-color--contrast: #{$contrast};
 }
 
 :host {
   @include bannerColors($primary, chooseContrastColor($primary));
 
   display: block;
-  padding: $spacing-xl 0;
+  padding: var(--spacing-xl) 0;
 
   background-color: var(--banner-color);
 
   .mtr-banner__content {
-    color: var(--banner-color-contrast);
+    color: var(--banner-color--contrast);
 
     &::ng-deep * {
-      color: var(--banner-color-contrast);
+      color: var(--banner-color--contrast);
     }
   }
   &.inverse,
@@ -27,7 +27,7 @@
   }
 }
 
-@each $name, $value in $colors {
+@each $name, $value in $scssColors {
   :host.#{"" + $name},
   :host[#{"" + $name}] {
     @include bannerColors(

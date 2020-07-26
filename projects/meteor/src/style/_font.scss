@@ -4,8 +4,16 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@300;400;600&display=swap");
 
+:root {
+  --font-color: #{$dark};
+
+  --link-color: #{$primary};
+  --link-color--hover: #{chooseLightColor($primary)};
+  --link-color--active: #{chooseLighterColor($primary)};
+}
+
 * {
-  color: $dark;
+  color: var(--font-color);
   font-family: "Lato", sans-serif;
 }
 
@@ -27,7 +35,7 @@
   font-size: 90%;
 }
 
-@mixin bannerColors($color, $colorSub) {
+@mixin headingColors($color, $colorSub) {
   --heading-color: #{$color};
   --subheading-color: #{$colorSub};
 }
@@ -38,7 +46,7 @@ h3,
 h4,
 h5,
 h6 {
-  @include bannerColors($primary, $primary);
+  @include headingColors($primary, $primary);
 
   color: var(--heading-color);
 
@@ -48,7 +56,7 @@ h6 {
   letter-spacing: 1px;
   line-height: 100%;
 
-  margin-bottom: $spacing-m;
+  margin-bottom: var(--spacing-m);
 
   &:last-child {
     margin-bottom: 0;
@@ -62,7 +70,7 @@ h6 {
   }
 }
 
-@each $name, $value in $colors {
+@each $name, $value in $scssColors {
   h1,
   h2,
   h3,
@@ -71,11 +79,25 @@ h6 {
   h6 {
     .#{"" + $name},
     &[#{"" + $name}] {
-      @include bannerColors($value, $value);
+      @include headingColors($value, $value);
     }
   }
 }
 
 p:not(:last-child) {
-  margin-bottom: $spacing-m;
+  margin-bottom: var(--spacing-m);
+}
+
+a,
+a:visited {
+  color: var(--link-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--link-color--hover);
+    text-decoration: underline;
+  }
+  &:active {
+    color: var(--link-color--active);
+  }
 }

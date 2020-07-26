@@ -1,6 +1,6 @@
-@import "../style/variables";
-
 :host {
+  --header-offset: 64px;
+
   display: block;
   position: relative;
 
@@ -14,7 +14,7 @@
   }
 
   &--expand-with-header {
-    height: calc(100% - 64px);
+    height: calc(100% - var(--header-offset));
   }
 
   &--full-width {

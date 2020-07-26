@@ -1,5 +1,16 @@
 @import "./variables/spacing";
 
+:root {
+  --spacing-xxs: #{$spacing-xxs};
+  --spacing-xs: #{$spacing-xs};
+  --spacing-s: #{$spacing-s};
+  --spacing-m: #{$spacing-m};
+  --spacing-l: #{$spacing-l};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-xxl: #{$spacing-xxl};
+  --spacing-none: #{$spacing-none};
+}
+
 @mixin spacing($property, $tag, $size) {
   .#{$tag}--#{$size} {
     #{$property}: map-get($spacings, $size) !important;

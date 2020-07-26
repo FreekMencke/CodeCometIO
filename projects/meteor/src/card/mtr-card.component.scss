@@ -1,6 +1,3 @@
-@import "../style/variables";
-@import "../style/mixins";
-
 :host {
   display: flex;
   flex-direction: column;
@@ -10,14 +7,14 @@
 }
 
 .mtr-card--content {
-  padding: $spacing-m;
+  padding: var(--spacing-m);
 }
 
 .mtr-card--actions {
-  padding: $spacing-s;
+  padding: var(--spacing-s);
   padding-top: 0;
 
   ::ng-deep mtr-btn + mtr-btn {
-    margin-left: $spacing-s;
+    margin-left: var(--spacing-s);
   }
 }

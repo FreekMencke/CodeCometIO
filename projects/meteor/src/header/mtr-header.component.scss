@@ -1,34 +1,35 @@
 @import "../style/variables";
 @import "../style/mixins";
 
-$header-height: 64px;
-$header-branding-width: 300px;
-
 @mixin headerColors($color, $contrast, $light, $lighter) {
   --header-color: #{$color};
-  --header-color-contrast: #{$contrast};
-  --header-color-light: #{$light};
-  --header-color-lighter: #{$lighter};
+  --header-color--contrast: #{$contrast};
+  --header-color--light: #{$light};
+  --header-color--lighter: #{$lighter};
 }
 
-header {
+:host {
   @include headerColors(
     $primary,
     chooseContrastColor($primary),
     chooseLightColor($primary),
     chooseLighterColor($primary)
   );
+  --header-height: 64px;
+  --header-branding-width: 300px;
+}
 
+header {
   position: relative;
   z-index: 1;
 
   display: flex;
   flex-direction: row;
 
-  height: $header-height;
+  height: var(--header-height);
 
   background-color: var(--header-color);
-  color: var(--header-color-contrast);
+  color: var(--header-color--contrast);
 
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
@@ -36,20 +37,20 @@ header {
 .mtr-header__branding,
 .mtr-header__branding::ng-deep > a {
   display: block;
-  height: $header-height;
-  width: $header-branding-width;
+  height: var(--header-height);
+  width: var(--header-branding-width);
   text-decoration: none;
 
   &::ng-deep > [mtr-header__branding]:not(a),
   &::ng-deep > a[mtr-header__branding] > * {
-    height: $header-height;
-    line-height: #{$header-height - $spacing-m};
+    height: var(--header-height);
+    line-height: calc(var(--header-height) - var(--spacing-m));
     width: auto;
 
     margin: 0;
-    padding: $spacing-s $spacing-l;
+    padding: var(--spacing-s) var(--spacing-l);
 
-    color: var(--header-color-contrast);
+    color: var(--header-color--contrast);
     text-decoration: none;
   }
 }
@@ -58,61 +59,64 @@ header {
   display: flex;
   flex-direction: row;
 
-  height: $header-height;
+  height: var(--header-height);
 
-  padding: 0 $spacing-s;
+  padding: 0 var(--spacing-s);
 
   &::ng-deep > a[mtr-header__nav-item] {
     display: block;
 
-    height: $header-height;
-    line-height: $header-height;
+    height: var(--header-height);
+    line-height: var(--header-height);
 
-    padding: 0 $spacing-s;
+    padding: 0 var(--spacing-s);
 
-    color: var(--header-color-contrast);
+    color: var(--header-color--contrast);
 
     cursor: pointer;
     text-decoration: none;
     user-select: none;
 
     &.mtr-header__nav-item--active {
-      border-bottom: 4px solid var(--header-color-contrast);
+      border-bottom: 4px solid var(--header-color--contrast);
     }
 
     &:hover {
-      background-color: var(--header-color-light);
+      background-color: var(--header-color--light);
     }
     &:active {
-      background-color: var(--header-color-lighter);
+      background-color: var(--header-color--lighter);
     }
   }
 }
 
-:host.inverse header,
-:host[inverse] header {
+:host.inverse,
+:host[inverse] {
   @include headerColors(
     chooseContrastColor(chooseLightColor($primary)),
     $primary,
     chooseLightColor($primary),
     chooseLighterColor($primary)
   );
-  .mtr-header__nav-items::ng-deep > a[mtr-header__nav-item] {
-    &:hover {
-      color: var(--header-color);
+
+  header {
+    .mtr-header__nav-items::ng-deep > a[mtr-header__nav-item] {
+      &:hover {
+        color: var(--header-color);
+      }
+      &:active {
+        color: var(--header-color);
+      }
     }
-    &:active {
-      color: var(--header-color);
+    .mtr-header__branding::ng-deep > [mtr-header__branding] {
+      color: var(--header-color--contrast);
     }
-  }
-  .mtr-header__branding::ng-deep > [mtr-header__branding] {
-    color: var(--header-color-contrast);
   }
 }
 
-@each $name, $value in $colors {
-  :host.#{"" + $name} header,
-  :host[#{"" + $name}] header {
+@each $name, $value in $scssColors {
+  :host.#{"" + $name},
+  :host[#{"" + $name}] {
     @include headerColors(
       $value,
       chooseContrastColor(chooseLightColor($value)),
@@ -121,8 +125,8 @@ header {
     );
   }
 
-  :host.#{"" + $name}.inverse header,
-  :host[#{"" + $name}][inverse] header {
+  :host.#{"" + $name}.inverse,
+  :host[#{"" + $name}][inverse] {
     @include headerColors(
       chooseContrastColor(chooseLightColor($value)),
       $value,

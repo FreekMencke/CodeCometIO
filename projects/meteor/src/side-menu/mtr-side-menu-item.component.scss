@@ -3,9 +3,9 @@
 
 @mixin itemColors($color, $contrast, $light, $lighter) {
   --side-menu-item-color: #{$color};
-  --side-menu-item-color-contrast: #{$contrast};
-  --side-menu-item-color-light: #{$light};
-  --side-menu-item-color-lighter: #{$lighter};
+  --side-menu-item-color--contrast: #{$contrast};
+  --side-menu-item-color--light: #{$light};
+  --side-menu-item-color--lighter: #{$lighter};
 }
 
 :host {
@@ -17,7 +17,7 @@
   );
 
   .mtr-side-menu-item__content {
-    padding: $spacing-s $spacing-l;
+    padding: var(--spacing-s) var(--spacing-l);
     border-left: 4px solid transparent;
   }
 
@@ -28,32 +28,32 @@
   user-select: none;
 
   background-color: var(--side-menu-item-color);
-  color: var(--side-menu-item-color-contrast);
+  color: var(--side-menu-item-color--contrast);
   &::ng-deep * {
-    color: var(--side-menu-item-color-contrast);
+    color: var(--side-menu-item-color--contrast);
   }
 
-  border-bottom: 1px solid var(--side-menu-item-color-lighter);
+  border-bottom: 1px solid var(--side-menu-item-color--lighter);
   &:first-of-type {
-    border-top: 1px solid var(--side-menu-item-color-lighter);
+    border-top: 1px solid var(--side-menu-item-color--lighter);
   }
 
   &.mtr-side-menu-item--active {
-    background-color: var(--side-menu-item-color-light);
+    background-color: var(--side-menu-item-color--light);
     .mtr-side-menu-item__content {
-      border-left: 4px solid var(--side-menu-item-color-contrast);
+      border-left: 4px solid var(--side-menu-item-color--contrast);
     }
   }
 
   &:hover {
-    background-color: var(--side-menu-item-color-light);
+    background-color: var(--side-menu-item-color--light);
   }
   &:active {
-    background-color: var(--side-menu-item-color-lighter);
+    background-color: var(--side-menu-item-color--lighter);
   }
 }
 
-@each $name, $value in $colors {
+@each $name, $value in $scssColors {
   :host.#{"" + $name},
   :host[#{"" + $name}] {
     @include itemColors(
@@ -88,7 +88,7 @@
   }
 }
 
-@each $name, $value in $colors {
+@each $name, $value in $scssColors {
   :host.#{"" + $name},
   :host[#{"" + $name}] {
     @include itemColors(

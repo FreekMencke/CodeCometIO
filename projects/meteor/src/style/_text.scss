@@ -1,6 +1,3 @@
-@import "./mixins";
-@import "./variables";
-
 .text--left {
   text-align: center;
 }
@@ -9,18 +6,4 @@
 }
 .text--right {
   text-align: center;
-}
-
-a,
-a:visited {
-  color: $primary;
-  text-decoration: none;
-
-  &:hover {
-    color: chooseLightColor($primary);
-    text-decoration: underline;
-  }
-  &:active {
-    color: chooseLighterColor($primary);
-  }
 }

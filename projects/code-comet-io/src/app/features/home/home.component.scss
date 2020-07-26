@@ -15,9 +15,9 @@
     max-width: 300px;
   }
 
-  margin: 0 -24px;
+  margin: 0 calc(-1 * var(--spacing-l));
   * {
-    margin: 0 24px;
+    margin: 0 var(--spacing-l);
     flex: 1 0 320px;
   }
 }
@@ -28,9 +28,9 @@
   flex-wrap: wrap;
   align-items: flex-start;
 
-  margin: 0 -24px;
+  margin: 0 calc(-1 * var(--spacing-l));
   mtr-card {
-    margin: 0 24px;
+    margin: 0 var(--spacing-l);
     flex: 1 0 320px;
   }
 }

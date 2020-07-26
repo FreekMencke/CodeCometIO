@@ -3,7 +3,7 @@
 
 @mixin itemColors($color, $contrast) {
   --side-menu-item-color: #{$color};
-  --side-menu-item-color-contrast: #{$contrast};
+  --side-menu-item-color--contrast: #{$contrast};
 }
 
 :host {
@@ -18,7 +18,7 @@
   overflow-y: auto;
 
   background-color: var(--side-menu-item-color);
-  color: var(--side-menu-item-color-contrast);
+  color: var(--side-menu-item-color--contrast);
   box-shadow: 2px 0 2px rgba(0, 0, 0, 0.2);
 
   transition: none;
@@ -35,15 +35,15 @@
   font-size: 25px;
   width: 50px;
   &::ng-deep button {
-    padding: $spacing-s 0;
-    color: var(--side-menu-item-color-contrast) !important;
+    padding: var(--spacing-s) 0;
+    color: var(--side-menu-item-color--contrast) !important;
   }
 }
 
 .mtr-side-menu__title {
-  padding: $spacing-m $spacing-l;
+  padding: var(--spacing-m) var(--spacing-l);
   margin: 0;
-  color: var(--side-menu-item-color-contrast);
+  color: var(--side-menu-item-color--contrast);
 }
 
 :host[inverse] {
@@ -53,7 +53,7 @@
   );
 }
 
-@each $name, $value in $colors {
+@each $name, $value in $scssColors {
   :host.#{"" + $name},
   :host[#{"" + $name}] {
     @include itemColors(

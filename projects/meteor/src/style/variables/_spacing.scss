@@ -8,14 +8,15 @@ $spacing-m: 16px;
 $spacing-l: 24px;
 $spacing-xl: 32px;
 $spacing-xxl: 48px;
+$spacing-none: 48px;
 
 $spacings: (
-  xxs: 2px,
-  xs: 4px,
-  s: 8px,
-  m: 16px,
-  l: 24px,
-  xl: 32px,
-  xxl: 48px,
-  none: 0px
+  xxs: var(--spacing-xxs),
+  xs: var(--spacing-xs),
+  s: var(--spacing-s),
+  m: var(--spacing-m),
+  l: var(--spacing-l),
+  xl: var(--spacing-xl),
+  xxl: var(--spacing-xxl),
+  none: var(--spacing-non),
 );
