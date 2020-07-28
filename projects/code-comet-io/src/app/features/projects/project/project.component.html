@@ -1,8 +1,21 @@
-<h1>
-  {{ project.title }}
-  <div class="mtr-subtitle">{{ project.subtitle }}</div>
-</h1>
+<div class="project">
+  <h1>
+    {{ project.title }}
+    <div class="mtr-subtitle">{{ project.subtitle }}</div>
+  </h1>
 
-<div class="project__banner mb--xl" [style.backgroundImage]="'url('+project.bannerSrc+')'"></div>
+  <div class="project__banner" [style.backgroundImage]="'url('+project.bannerSrc+')'"></div>
 
-<div [innerHTML]="project.content"></div>
+  <div class="project__content mt--xl mb--l" [innerHTML]="project.content"></div>
+
+  <ng-template [ngIf]="project.media.length > 0">
+    <h2>Media</h2>
+    <div class="project__media p--l mb--l">
+      <div class="project__media--slide" *ngFor="let media of project.media">
+        <a [href]="media.mediaSrc" target="_blank">
+          <img [src]="media.mediaSrc">
+        </a>
+      </div>
+    </div>
+  </ng-template>
+</div>

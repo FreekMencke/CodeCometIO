@@ -14,7 +14,7 @@
   }
 
   &--expand-with-header {
-    height: calc(100% - var(--header-offset));
+    height: calc(100vh - var(--header-offset));
   }
 
   &--full-width {

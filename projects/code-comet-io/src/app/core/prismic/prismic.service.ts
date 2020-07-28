@@ -6,7 +6,7 @@ import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { About } from '../../features/home/models/about.model';
 import { ProjectCard } from '../../features/home/models/project-card.model';
-import { Project } from '../../features/projects/models/project.model';
+import { Project, ProjectMedia } from '../../features/projects/models/project.model';
 
 @Injectable({
   providedIn: 'root',
@@ -61,7 +61,7 @@ export class PrismicService {
         media: result.data.project_media.map((media: any) => ({
           tag: media.media_tag,
           mediaSrc: media.media.url,
-        })),
+        })).filter((media: ProjectMedia) => !!media.mediaSrc),
       })),
     );
   }
