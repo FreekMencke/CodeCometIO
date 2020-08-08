@@ -1,9 +1,10 @@
-@import "reset";
+@import 'reset';
 
-@import "font";
-@import "text";
-@import "spacing";
-@import "colors";
+@import 'breakpoints';
+@import 'colors';
+@import 'font';
+@import 'text';
+@import 'spacing';
 
 html {
   min-height: 100%;

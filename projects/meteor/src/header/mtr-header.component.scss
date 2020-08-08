@@ -1,5 +1,5 @@
-@import "../style/variables";
-@import "../style/mixins";
+@import '../style/variables';
+@import '../style/mixins';
 
 @mixin headerColors($color, $contrast, $light, $lighter) {
   --header-color: #{$color};
@@ -17,12 +17,13 @@
   );
   --header-height: 64px;
   --header-branding-width: 300px;
+
+  display: block;
+  position: relative;
+  z-index: 1;
 }
 
 header {
-  position: relative;
-  z-index: 1;
-
   display: flex;
   flex-direction: row;
 
@@ -59,6 +60,8 @@ header {
   display: flex;
   flex-direction: row;
 
+  background-color: var(--header-color);
+
   height: var(--header-height);
 
   padding: 0 var(--spacing-s);
@@ -80,13 +83,54 @@ header {
     &.mtr-header__nav-item--active {
       border-bottom: 4px solid var(--header-color--contrast);
     }
+  }
+}
 
-    &:hover {
-      background-color: var(--header-color--light);
+.mtr-header__toggle {
+  display: none;
+}
+
+@include tablet-and-down {
+  header {
+    justify-content: space-between;
+  }
+  .mtr-header__nav-items {
+    display: none;
+  }
+  .mtr-header__toggle {
+    display: flex;
+    font-size: 25px;
+  }
+  .mtr-header__nav-items--open {
+    display: flex;
+    position: absolute;
+    top: var(--header-height);
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    padding: 0;
+
+    z-index: -1;
+
+    &::ng-deep > a[mtr-header__nav-item] {
+      padding: 0 var(--spacing-l);
+
+      &.mtr-header__nav-item--active {
+        background-color: var(--header-color--contrast);
+        color: var(--header-color);
+        border-bottom: inherit;
+      }
     }
-    &:active {
-      background-color: var(--header-color--lighter);
-    }
+  }
+}
+
+.mtr-header__nav-items::ng-deep > a[mtr-header__nav-item] {
+  &:hover {
+    background-color: var(--header-color--light);
+  }
+  &:active {
+    background-color: var(--header-color--lighter);
   }
 }
 
@@ -115,7 +159,7 @@ header {
 }
 
 @each $name, $value in $scssColors {
-  :host.#{"" + $name},
+  :host.#{'' + $name},
   :host[#{"" + $name}] {
     @include headerColors(
       $value,
@@ -125,7 +169,7 @@ header {
     );
   }
 
-  :host.#{"" + $name}.inverse,
+  :host.#{'' + $name}.inverse,
   :host[#{"" + $name}][inverse] {
     @include headerColors(
       chooseContrastColor(chooseLightColor($value)),
