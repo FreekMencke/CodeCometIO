@@ -83,11 +83,18 @@ header {
     &.mtr-header__nav-item--active {
       border-bottom: 4px solid var(--header-color--contrast);
     }
+    &:hover {
+      background-color: var(--header-color--light);
+    }
+    &:active {
+      background-color: var(--header-color--lighter);
+    }
   }
 }
 
 .mtr-header__toggle {
   display: none;
+  --button-color--light: var(--header-color--contrast);
 }
 
 @include tablet-and-down {
@@ -121,16 +128,15 @@ header {
         color: var(--header-color);
         border-bottom: inherit;
       }
+      &:hover {
+        background-color: var(--header-color--light);
+        color: var(--header-color--contrast);
+      }
+      &:active {
+        background-color: var(--header-color--lighter);
+        color: var(--header-color--contrast);
+      }
     }
-  }
-}
-
-.mtr-header__nav-items::ng-deep > a[mtr-header__nav-item] {
-  &:hover {
-    background-color: var(--header-color--light);
-  }
-  &:active {
-    background-color: var(--header-color--lighter);
   }
 }
 
@@ -179,3 +185,16 @@ header {
     );
   }
 }
+
+// @include tablet-and-down {
+//   :host .mtr-header__nav-items--open {
+//     &::ng-deep > a[mtr-header__nav-item] {
+//       padding: 0 var(--spacing-l);
+
+//       &.mtr-header__nav-item--active {
+//         background-color: var(--header-color);
+//         color: var(--header-color--contrast);
+//       }
+//     }
+//   }
+// }
