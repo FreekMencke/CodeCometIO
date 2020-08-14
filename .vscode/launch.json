@@ -10,15 +10,7 @@
       "request": "launch",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}/projects/code-comet-io",
-      "preLaunchTask": "npm: start:cc"
+      "preLaunchTask": "npm: start"
     },
-    {
-      "name": "Meteorite",
-      "type": "pwa-chrome",
-      "request": "launch",
-      "url": "http://localhost:4201",
-      "webRoot": "${workspaceFolder}/projects/meteorite",
-      "preLaunchTask": "npm: start:mit"
-    }
   ]
 }

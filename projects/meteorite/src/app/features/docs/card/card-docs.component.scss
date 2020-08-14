@@ -1,9 +1,0 @@
-.two-columns {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-
-  mtr-card + mtr-card {
-    margin-left: var(--spacing-l);
-  }
-}

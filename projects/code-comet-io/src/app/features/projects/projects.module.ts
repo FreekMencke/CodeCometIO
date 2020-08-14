@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MeteorContainerModule, MeteorSideMenuModule } from 'meteor';
+import { MeteorContainerModule, MeteorSideMenuModule } from '@code-comet/meteor';
 import { SharedModule } from '../../shared/shared.module';
 import { ProjectComponent } from './project/project.component';
 import { ProjectsRoutingModule } from './projects-routing.module';

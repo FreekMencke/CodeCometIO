@@ -1,16 +1,22 @@
 {
-  "name": "code-comet-io",
+  "name": "@code-comet/code-comet-io",
   "version": "0.0.0",
+  "homepage": "https://codecomet.io",
+  "author": {
+    "name": "Freek Mencke",
+    "url": "https://codecomet.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FreekMencke/CodeCometIO.git",
+    "directory": "projects/meteorite"
+  },
   "scripts": {
-    "start:cc": "ng serve code-comet-io --open --port 4200",
-    "start:mit": "ng serve meteorite --open --port 4201",
+    "start": "ng serve  --open --port 4200",
     "clean": "rm -rf dist/ node_modules/.cache",
-    "build:meteor": "ng build meteor",
-    "build:meteorite": "ng build meteorite --base-href /meteorite/",
-    "build:code-comet-io": "ng build code-comet-io --base-href /",
+    "build": "ng build --base-href /",
     "prebuild:prod": "npm run clean && rm -rf dist/",
-    "build:prod": "npm run build:meteor -- --prod && npm run build:meteorite -- --prod && npm run build:code-comet-io -- --prod",
-    "postbuild:prod": "cp -r dist/code-comet-io dist/deploy && cp -r dist/meteorite  dist/deploy/meteorite/"
+    "build:prod": "npm run build -- --prod"
   },
   "private": true,
   "dependencies": {
@@ -22,9 +28,9 @@
     "@angular/platform-browser": "~10.0.9",
     "@angular/platform-browser-dynamic": "~10.0.9",
     "@angular/router": "~10.0.9",
+    "@code-comet/meteor": "0.0.1",
     "prismic-dom": "^2.2.3",
     "prismic-javascript": "^3.0.1",
-    "prismjs": "^1.20.0",
     "rxjs": "~6.6.2",
     "tslib": "^2.0.1",
     "zone.js": "~0.10.3"
@@ -36,7 +42,6 @@
     "@angular/compiler-cli": "~10.0.9",
     "@angular/language-service": "~10.0.9",
     "@types/node": "^12.12.54",
-    "@types/prismjs": "^1.16.1",
     "codelyzer": "^6.0.0",
     "cz-conventional-changelog": "^3.2.0",
     "@types/prismic-dom": "^2.1.1",

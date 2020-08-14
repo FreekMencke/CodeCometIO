@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MeteorContainerModule } from 'meteor';
+import { MeteorContainerModule } from '@code-comet/meteor';
 import { FooterModule } from './components/cc-footer/cc-footer.module';
 import { HeaderModule } from './components/cc-header/cc-header.module';
 

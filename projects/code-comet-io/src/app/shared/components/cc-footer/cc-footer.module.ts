@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MeteorBannerModule, MeteorContainerModule } from 'meteor';
+import { MeteorBannerModule, MeteorContainerModule } from '@code-comet/meteor';
 import { FooterComponent } from './cc-footer.component';
 
 @NgModule({
