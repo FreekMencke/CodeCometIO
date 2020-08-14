@@ -11,9 +11,9 @@ const routes: Routes = [
     pathMatch: 'prefix',
     component: ProjectsComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: ProjectRoutes.Meteor },
+      { path: '', pathMatch: 'full', redirectTo: ProjectRoutes.Meteorite },
       {
-        path: ProjectRoutes.Meteor,
+        path: ProjectRoutes.Meteorite,
         component: ProjectComponent,
         data: { projectId: 'XxrG4BEAACUAmHPv' },
         resolve: { project: ProjectResolver },

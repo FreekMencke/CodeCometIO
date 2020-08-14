@@ -1,4 +1,4 @@
 export enum ProjectRoutes {
-  Meteor = 'meteor',
+  Meteorite = 'meteorite',
   OSRSTracker = 'osrs-tracker',
 }

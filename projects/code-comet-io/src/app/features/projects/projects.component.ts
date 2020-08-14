@@ -11,8 +11,8 @@ export class ProjectsComponent {
 
   readonly projects: { name: string, path: string }[] = [
     {
-      name: 'Meteor',
-      path: ProjectRoutes.Meteor,
+      name: 'Meteorite',
+      path: ProjectRoutes.Meteorite,
     },
     {
       name: 'OSRS Tracker',
