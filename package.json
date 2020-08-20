@@ -30,7 +30,7 @@
     "@angular/router": "~10.0.9",
     "@code-comet/meteor": "0.0.1",
     "prismic-dom": "^2.2.3",
-    "prismic-javascript": "^3.0.1",
+    "prismic-javascript": "^3.0.2",
     "rxjs": "~6.6.2",
     "tslib": "^2.0.1",
     "zone.js": "~0.10.3"
